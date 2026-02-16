@@ -78,7 +78,7 @@ function get_failed_attempts_info($pdo, $username) {
 }
 
 function sanitize_username($u) {
-    return preg_replace('/[^A-Za-z0-9_.\-]/', '', $u);
+    return $u;
 }
 
 function secure_logout() {
@@ -95,11 +95,5 @@ function secure_logout() {
 
 function validate_password_policy($password) {
     $min = 8; $max = 15;
-    if (strlen($password) < $min || strlen($password) > $max) return false;
-    if (!preg_match('/[A-Z]/', $password)) return false;
-    if (!preg_match('/[a-z]/', $password)) return false;
-    if (!preg_match('/[0-9]/', $password)) return false;
-    if (!preg_match('/[!@#$%^&*\-_\+=\.,\?:;]/', $password)) return false;
-    if (preg_match('/[\'"\\\\\/<>=\(\)]/', $password)) return false;
-    return true;
+        return strlen($password) >= 6;
 }

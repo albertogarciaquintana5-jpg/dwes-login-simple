@@ -7,15 +7,13 @@ update_session_activity();
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!verify_csrf_token($_POST['csrf_token'] ?? '')) die('CSRF inválido');
 
+
     $username = sanitize_username($_POST['username'] ?? '');
     $password = $_POST['password'] ?? '';
     $email = filter_var($_POST['email'] ?? '', FILTER_VALIDATE_EMAIL);
 
     if (empty($username) || empty($password)) {
         die('Datos faltan.');
-    }
-    if (!validate_password_policy($password)) {
-        die('Contraseña no cumple la política.');
     }
 
     $password_hash = password_hash($password, PASSWORD_DEFAULT);

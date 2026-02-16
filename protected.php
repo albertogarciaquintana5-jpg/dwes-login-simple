@@ -8,7 +8,7 @@ if (is_session_expired()) {
 }
 
 if (empty($_SESSION['user_id'])) {
-    header('Location: login.php');
+    header('Location: index.php');
     exit;
 }
 

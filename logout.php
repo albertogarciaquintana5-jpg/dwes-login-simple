@@ -9,5 +9,5 @@ if (ini_get("session.use_cookies")) {
 
 secure_logout();
 
-header('Location: login.php');
+header('Location: index.php');
 exit;

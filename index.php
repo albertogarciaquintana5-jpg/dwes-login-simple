@@ -78,7 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="card p-4 shadow-lg" style="width: 380px;">
         <h3 class="text-center mb-3">Iniciar Sesión</h3>
 
-        <form id="loginForm" method="post" action="login.php" novalidate>
+        <form id="loginForm" method="post" action="index.php" novalidate>
             <div class="mb-3">
                 <label class="form-label">Usuario</label>
                 <input type="text" name="username" id="username" class="form-control" required>
